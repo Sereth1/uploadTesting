@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+// src/components/Icons.tsx
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface Position {
   x: number;
   y: number;
 }
-interface DraggableButtonProps {
+
+interface IconsProps {
   setInitial: React.Dispatch<React.SetStateAction<string>>;
+  command: string;
+  img: string;
+  name: string;
+  sw: number;
+  sh: number;
+  posX: number;
+  posY: number;
 }
 
-export default function Icons({
+const Icons: React.FC<IconsProps> = ({
   setInitial,
   command,
   img,
@@ -18,15 +27,15 @@ export default function Icons({
   sh,
   posX,
   posY,
-}) {
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+}) => {
+  const [position, setPosition] = useState<Position>({ x: posX, y: posY });
   const [dragging, setDragging] = useState<boolean>(false);
   const [rel, setRel] = useState<Position | null>(null); // Position relative to the cursor
 
   const styles = {
-    left: `${position.x + posX}px`,
-    top: `${position.y + posY}px`,
-    position: "absolute",
+    left: `${position.x}px`,
+    top: `${position.y}px`,
+    position: "absolute" as "absolute",
     cursor: "grab",
   };
 
@@ -42,7 +51,7 @@ export default function Icons({
     e.preventDefault();
   };
 
-  const onMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onMouseUp = (e: MouseEvent) => {
     setDragging(false);
     e.stopPropagation();
     e.preventDefault();
@@ -58,7 +67,7 @@ export default function Icons({
     e.preventDefault();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (dragging) {
       document.addEventListener("mousemove", onMouseMove);
       document.addEventListener("mouseup", onMouseUp);
@@ -72,11 +81,12 @@ export default function Icons({
       document.removeEventListener("mouseup", onMouseUp);
     };
   }, [dragging, rel]);
+
   return (
     <div>
       <div onMouseDown={onMouseDown} style={styles}>
         <button
-          onClick={() => setInitial(`${command}`)}
+          onClick={() => setInitial(command)}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -85,12 +95,17 @@ export default function Icons({
             justifyContent: "center",
             width: "100%",
             padding: "10px",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
           }}
         >
           <Image src={img} alt="pc image" width={sw} height={sh} />
-          <h1>{name}</h1>
+          <h1 style={{ margin: 0 }}>{name}</h1>
         </button>
       </div>
     </div>
   );
-}
+};
+
+export default Icons;

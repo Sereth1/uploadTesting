@@ -1,9 +1,17 @@
-import React, { useState } from "react";
-import Image from "next/image";
+// src/components/DraggableButton.tsx
+import React from "react";
 import Icons from "./Icons";
 import Win95Modal from "./Win95Modal";
 
-const DraggableButton: React.FC = ({ setInitial, initial }) => {
+interface DraggableButtonProps {
+  setInitial: React.Dispatch<React.SetStateAction<string>>;
+  initial: string;
+}
+
+const DraggableButton: React.FC<DraggableButtonProps> = ({
+  setInitial,
+  initial,
+}) => {
   return (
     <>
       <Icons
@@ -34,7 +42,7 @@ const DraggableButton: React.FC = ({ setInitial, initial }) => {
         command={"email"}
         setInitial={setInitial}
         img={"/trashimg.png"}
-        name={"Inbox"}
+        name={"Trash"}
       />
       {initial === "start" && <Win95Modal setInitial={setInitial} />}
     </>

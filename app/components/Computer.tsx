@@ -1,11 +1,19 @@
+// src/components/Computer.tsx
 import React, { useState } from "react";
 import DraggableButton from "./Dragging";
 
-export default function Computer() {
-  const [initial, setInitial] = useState("start");
+interface DraggableButtonProps {
+  initial: string;
+  setInitial: React.Dispatch<React.SetStateAction<string>>;
+}
+const Computer: React.FC = () => {
+  const [initial, setInitial] = useState<string>("start");
+
   return (
     <div className="bg-custom-teal w-screen h-screen fixed top-0 left-0">
       <DraggableButton initial={initial} setInitial={setInitial} />
     </div>
   );
-}
+};
+
+export default Computer;
