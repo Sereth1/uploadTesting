@@ -1,0 +1,103 @@
+/* src/components/Win95Modal.css */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 450px;
+  background: #c0c0c0;
+  border: 2px solid #000000;
+
+  font-family: "Tahoma", sans-serif;
+  color: #000000;
+}
+
+.modal-header {
+  background: #000080;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  border-bottom: 2px solid #000000;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-body {
+  padding: 16px;
+  background: #d3d3d3;
+}
+
+.modal-welcome {
+  font-size: 20px;
+  margin: 0;
+}
+
+.windows {
+  font-weight: bold;
+  color: #000000;
+}
+
+.did-you-know {
+  margin-top: 16px;
+  background: #fffacd;
+  padding: 8px;
+  border: 1px solid #000000;
+}
+
+.did-you-know strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.computer-image {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.computer-image img {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px;
+  border-top: 2px solid #000000;
+  background: #d3d3d3;
+}
+
+.modal-button {
+  background: #c0c0c0;
+  border: 2px solid #000000;
+  padding: 2px 8px;
+  cursor: pointer;
+  margin: 4px 0;
+  width: 100%;
+  text-align: left;
+}
+
+.close-modal-button {
+  margin-top: 16px;
+}
