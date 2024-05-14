@@ -22,7 +22,7 @@ const Win95Modal: React.FC<Win95ModalProps> = ({ setInitial }) => {
             <strong>Did you know that you can fuck yourself...</strong>
             <p>
               To open a program, you just click the Start button, and then click
-              the program's icon.
+              the programs icon.
             </p>
           </div>
         </div>
