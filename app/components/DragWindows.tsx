@@ -5,9 +5,12 @@ interface Position {
   x: number;
   y: number;
 }
-
-const DragWindows: React.FC = ({}) => {
-  const [position, setPosition] = useState<Position>({ x: 780, y: 300 });
+interface Props {
+  setInitial: React.Dispatch<React.SetStateAction<string>>;
+  initial: String;
+}
+const DragWindows: React.FC<Props> = ({ setInitial, initial }) => {
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   const [dragging, setDragging] = useState<boolean>(false);
   const [rel, setRel] = useState<Position | null>(null); // Position relative to the cursor
 
@@ -63,7 +66,14 @@ const DragWindows: React.FC = ({}) => {
   return (
     <div onMouseDown={onMouseDown} style={styles}>
       <div>
-        <Win95Modal />
+        {initial === "start" && (
+          <Win95Modal
+            setInitial={setInitial}
+            wS={1000}
+            hS={500}
+            bgC={"#c0c0c0"}
+          />
+        )}
       </div>
     </div>
   );

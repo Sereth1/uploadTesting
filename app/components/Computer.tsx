@@ -11,14 +11,16 @@ interface DraggableButtonProps {
 interface DragWindowsProps {
   setInitial: React.Dispatch<React.SetStateAction<string>>;
 }
-
+interface DragWindows {
+  setInitial: React.Dispatch<React.SetStateAction<string>>;
+}
 const Computer: React.FC = () => {
   const [initial, setInitial] = useState<string>("start");
 
   return (
     <div className="bg-custom-teal w-screen h-screen fixed top-0 left-0">
       <DraggableButton initial={initial} setInitial={setInitial} />
-      <DragWindows />
+      <DragWindows initial={initial} setInitial={setInitial} />
     </div>
   );
 };
