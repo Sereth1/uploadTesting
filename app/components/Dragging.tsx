@@ -44,7 +44,6 @@ const DraggableButton: React.FC<DraggableButtonProps> = ({
         img={"/trashimg.png"}
         name={"Trash"}
       />
-      {initial === "start" && <Win95Modal setInitial={setInitial} />}
     </>
   );
 };
