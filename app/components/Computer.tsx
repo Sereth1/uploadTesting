@@ -18,7 +18,7 @@ const Computer: React.FC = () => {
   return (
     <div className="bg-custom-teal w-screen h-screen fixed top-0 left-0">
       <DraggableButton initial={initial} setInitial={setInitial} />
-      <DragWindows setInitial={setInitial} />
+      <DragWindows />
     </div>
   );
 };

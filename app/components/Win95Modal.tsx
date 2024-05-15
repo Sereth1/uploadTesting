@@ -1,16 +1,14 @@
 // src/components/Win95Modal.tsx
 import React from "react";
 import "../css/Win95Modal.css";
-interface Win95ModalProps {
-  setInitial: React.Dispatch<React.SetStateAction<string>>;
-}
-const Win95Modal: React.FC<Win95ModalProps> = ({ setInitial }) => {
+
+const Win95Modal: React.FC = () => {
   return (
     <div className="modal-backdrop">
       <div className="modal">
         <div className="modal-header">
           <span className="modal-title">Welcome</span>
-          <button className="close-button" onClick={() => setInitial("")}>
+          <button className="close-button" onClick={() => "closed"}>
             ×
           </button>
         </div>
@@ -31,7 +29,7 @@ const Win95Modal: React.FC<Win95ModalProps> = ({ setInitial }) => {
           <button className="modal-button">Online Registration</button>
           <button
             className="modal-button close-modal-button"
-            onClick={() => setInitial("")}
+            onClick={() => "closed"}
           >
             Close
           </button>
